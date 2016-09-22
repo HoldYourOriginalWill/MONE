@@ -1,0 +1,39 @@
+//
+//  Header.pch
+//  One 一个
+//
+//  Created by THANAO on 4/9/16.
+//  Copyright © 2016年 cz. All rights reserved.
+//
+
+#ifndef Header_pch
+#define Header_pch
+
+// 文件路径
+#define kFilePath [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/monthData.plist"]
+#define kSelectedPlist [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/isSelected.plist"]
+
+//---------------------屏幕尺寸--------------------------
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+
+//--------------------第三方库头文件---------------------------
+#import "AFNetworking.h"
+#import "YYModel.h"
+#import "SDCycleScrollView.h"
+#import "SDWebImageManager.h"
+#import "UIImageView+WebCache.h"
+#import "MBProgressHUD.h"
+
+//------------------字体样式----------------------------
+#define kContentFontSize [UIFont systemFontOfSize:15]
+#define kTitleFont [UIFont boldSystemFontOfSize:18]
+
+// 浅蓝色字体
+#define kFontColor [UIColor colorWithRed:133 / 255.0 green:171 / 255.0 blue:214 / 255.0 alpha:1]
+#define kTitleFontColor [UIColor colorWithRed:0 green:31 / 255.0 blue:86 / 255.0 alpha:1]
+
+//---------------------视图间隙---------------------------
+#define kSpaceWidth 5
+
+#endif /* Header_pch */
