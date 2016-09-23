@@ -39,18 +39,19 @@ typedef NS_ENUM(NSInteger, PagedOrthoScrollViewLockDirection) {
     int mx, my;
     
     if (self.directionLock == PagedOrthoScrollViewLockDirectionNone) {
-        // is on even page coordinates, set dir lock and lock value to closest page
+
         mx = abs((int)CGRectGetMinX(bounds) % (int)CGRectGetWidth(self.bounds));
+
         if (mx != 0) {
-            self.directionLock = PagedOrthoScrollViewLockDirectionHorizontal;
+            self.directionLock = PagedOrthoScrollViewLockDirectionVertical;
             self.valueLock = (round(CGRectGetMinY(bounds) / CGRectGetHeight(self.bounds)) * CGRectGetHeight(self.bounds));
         } else {
-            self.directionLock = PagedOrthoScrollViewLockDirectionVertical;
+            self.directionLock = PagedOrthoScrollViewLockDirectionHorizontal;
             self.valueLock = (round(CGRectGetMinX(bounds) / CGRectGetWidth(self.bounds)) * CGRectGetWidth(self.bounds));
         }
     }
     
-    if (self.directionLock == PagedOrthoScrollViewLockDirectionHorizontal) {
+    if (self.directionLock == PagedOrthoScrollViewLockDirectionVertical) {
         bounds.origin.y = self.valueLock;
     } else {
         bounds.origin.x = self.valueLock;
@@ -60,7 +61,6 @@ typedef NS_ENUM(NSInteger, PagedOrthoScrollViewLockDirection) {
     my = abs((int)CGRectGetMinY(bounds) % (int)CGRectGetHeight(self.bounds));
     
     if (mx == 0 && my == 0) {
-        // is on even page coordinates, reset lock
         self.directionLock = PagedOrthoScrollViewLockDirectionNone;
     }
     [super setBounds:bounds];

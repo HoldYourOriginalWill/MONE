@@ -51,7 +51,7 @@
     contentScrollView.tag = 100;
     contentScrollView.pagingEnabled = YES;
     contentScrollView.showsVerticalScrollIndicator = NO;
-    //contentScrollView.showsHorizontalScrollIndicator = NO;
+    contentScrollView.showsHorizontalScrollIndicator = NO;
     contentScrollView.delegate = self;
     [self.view addSubview:contentScrollView];
 }
@@ -74,13 +74,14 @@
       parameters:nil
         progress:NULL 
          success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSDictionary *dic = responseObject[@"data"];
-        model = [MusicModel yy_modelWithDictionary:dic];
-        contentTableView = [[UITableView alloc] initWithFrame:CGRectMake(index * kScreenWidth, 0, kScreenWidth, kScreenHeight - 20 - 44 - 49)];
-        contentTableView.delegate = self;
-        contentTableView.dataSource = self;
-        contentTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 20);
-        [contentScrollView addSubview:contentTableView];
+            NSDictionary *dic = responseObject[@"data"];
+            model = [MusicModel yy_modelWithDictionary:dic];
+            contentTableView = [[UITableView alloc] initWithFrame:CGRectMake(index * kScreenWidth, 0, kScreenWidth, kScreenHeight - 20 - 44 - 49)];
+            contentTableView.delegate = self;
+            contentTableView.dataSource = self;
+            contentTableView.showsVerticalScrollIndicator = NO;
+            contentTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 20);
+            [contentScrollView addSubview:contentTableView];
     }
          failure:^(NSURLSessionDataTask *task, NSError *error) {
         
@@ -287,7 +288,7 @@
     introLabel.font = [UIFont systemFontOfSize:12];
     [authorView addSubview:introLabel];
     
-    UILabel *songLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 80, 200, 20)];
+    UILabel *songLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 80, 280, 20)];
     songLabel.text = model.title;
     songLabel.font = [UIFont systemFontOfSize:18];
     [authorView addSubview:songLabel];
