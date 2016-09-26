@@ -18,6 +18,7 @@
     NSInteger buttonIndex;
     NSArray *buttonSelected;
     NSArray *UIArray;
+    NSString *typeString;
 }
 @end
 
@@ -25,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    typeString = @"音乐故事";
     buttonSelected = @[@1, @0, @0];
     [self loadData];
     // Do any additional setup after loading the view.
@@ -103,7 +105,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *cellID = @"musicID";
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    for (UILabel *label in cell.contentView.subviews) {
+        [label removeFromSuperview];
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (indexPath.row == 0) {
         UIArray = [[NSArray alloc] init];
@@ -164,7 +172,7 @@
     height = height + 10;
     //按钮
     UILabel *typeLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, height + 8, 100, 12)];
-    typeLabel.text = @"音乐故事";
+    typeLabel.text = typeString;
     typeLabel.font = [UIFont systemFontOfSize:12];
     typeLabel.textColor = [UIColor lightGrayColor];
     [mArray addObject:typeLabel];
@@ -212,6 +220,8 @@
         
         UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, height, kScreenWidth - 40, 20000)];
         contentLabel.text = [model.story stringByReplacingOccurrencesOfString:@"<br>" withString:@""];
+        contentLabel.text = [contentLabel.text stringByReplacingOccurrencesOfString:@"<em>" withString:@""];
+        contentLabel.text = [contentLabel.text stringByReplacingOccurrencesOfString:@"</em>" withString:@""];
         contentLabel.font = kContentFontSize;
         contentLabel.numberOfLines = 0;
         [contentLabel sizeToFit];
@@ -267,8 +277,12 @@
 }
 - (UIView *)authorView{
     UIView *authorView = [[UIView alloc] initWithFrame:CGRectMake(20, kScreenHeight / 2 - 40, kScreenWidth - 40, 120)];
-    authorView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    authorView.layer.borderWidth = 1;
+   // authorView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    //authorView.layer.borderWidth = 1;
+    authorView.layer.cornerRadius = 5;
+    authorView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    authorView.layer.shadowOpacity = 1;
+    authorView.layer.shadowOffset = CGSizeMake(0, 0.5);
     authorView.backgroundColor = [UIColor whiteColor];
     
     UIImageView *icon = [[UIImageView alloc] initWithFrame:CGRectMake(20, 20, 40, 40)];
@@ -322,15 +336,19 @@
     switch (button.tag - 200) {
         case 0:
             buttonSelected = @[@1, @0, @0];
+            typeString = @"音乐故事";
             break;
         case 1:
             buttonSelected = @[@0, @1, @0];
+            typeString = @"歌词";
             break;
         case 2:
             buttonSelected = @[@0, @0, @1];
+            typeString = @"歌曲信息";
             break;
         default:
             buttonSelected = @[@1, @0, @0];
+            typeString = @"音乐故事";
             break;
     }
     //UIArray = [self locateUIWithModel];

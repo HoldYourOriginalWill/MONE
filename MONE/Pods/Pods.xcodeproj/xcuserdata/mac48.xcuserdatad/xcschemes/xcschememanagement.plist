@@ -19,6 +19,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>SDCycleScrollView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -37,7 +42,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>13F2FF570E1BED70FE5D2D6094AD3EAB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2648E077DB16F5026958B808DD24C3B1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>506E8B61D5E2985871A1288F90738CDE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5C22C5AB446C31E8081FF0A561F03686</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7F89955C4C560333DDD79617071AEC40</key>
 		<dict>
 			<key>primary</key>
 			<true/>

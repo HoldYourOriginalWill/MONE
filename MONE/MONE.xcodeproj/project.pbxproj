@@ -611,7 +611,7 @@
 				TargetAttributes = {
 					BADBE1711D50C442002EAB3D = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = W48NQTFSP7;
+						DevelopmentTeam = 5R84RK9XG9;
 					};
 				};
 			};
@@ -871,12 +871,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = W48NQTFSP7;
+				DEVELOPMENT_TEAM = 5R84RK9XG9;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MONE/Header.pch";
 				INFOPLIST_FILE = MONE/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cz.MONE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jh.MONE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
@@ -888,12 +888,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = W48NQTFSP7;
+				DEVELOPMENT_TEAM = 5R84RK9XG9;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MONE/Header.pch";
 				INFOPLIST_FILE = MONE/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cz.MONE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jh.MONE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
